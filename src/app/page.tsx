@@ -1,122 +1,107 @@
 import Image from "next/image";
-import { Inter } from "next/font/google";
-const inter = Inter({ subsets: ["latin"] });
+
+import tw from "tailwind-styled-components";
+
+const ProductTitle = `flex-auto text-lg font-semibold text-slate-900`;
+
+// interface ProductPriceColor {
+//   priceColor?: "" | "text-slate-200";
+// }
+
+// const ProductPrice = tw.div<ProductPriceColor>`
+// text-lg
+// font-semibold
+// text-slate-800
+// `;
+
+// const Wrapper = ({ children, ...props }: any) => {
+//   return (
+//     <div className="flex font-sans rounded-lg w-30 bg-slate-400" {...props}>
+//       {children}
+//     </div>
+//   );
+// };
 
 export default function Home() {
   return (
-    <div className="flex font-sans rounded-lg w-30 bg-slate-400">
-      <div className="flex-none w-48 relative ml-9">
-        <Image
-          src="/images/classic-utility-jacket.jpg"
-          width={1000}
-          height={100}
-          alt="image"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
-        />
+    <div className="container m-auto lg:px-20 ">
+      <nav className="bg-orange-600 mt-2">NavBar</nav>
+      <div className="bg-green-500 flex gap-10 mt-4">
+        <div className="bg-red-300 ">
+          <h3>Bênto Cake - 350g</h3>
+          <p>
+            acompanha garfo e embalagem biodegradáveis 2 camadas de massa 1
+            camada de recheio 7 cm de altura 10cm de diâmetro
+          </p>
+        </div>
+        <div className="bg-blue-400">
+          <h3>Cobertura</h3>
+          <p>
+            pensando na qualidade e experiência gustativa, trabalhamos
+            exclusivamente com a cobertura buttercream de merengue suíco
+          </p>
+        </div>
       </div>
-      <form className="flex-auto p-6">
-        <div className="flex flex-wrap">
-          <h1 className="flex-auto text-lg font-semibold text-slate-900">
-            Classic Utility Jacket
-          </h1>
-          <div className="text-lg font-semibold text-slate-800">$110.00</div>
-          <div className="w-full flex-none text-sm font-medium text-slate-700 mt-2">
-            In stock
-          </div>
-        </div>
-        <div className="flex items-baseline mt-4 mb-6 pb-6 border-b border-slate-200">
-          <div className="space-x-2 flex text-sm">
-            <label>
+      <form encType="multipart/form-data" name="PedidosBento">
+        <section className="border-solid border-2 rounded-md  mt-4 p-2 border-sky-500">
+          <h3 className="p-2">Selecione o sabor do seu bolo:</h3>
+          <div className="flex gap-20 px-10">
+            <label className="bg-purple-700 rounded-lg max-w-sm ">
               <input
-                className="sr-only peer"
-                name="size"
                 type="radio"
-                value="xs"
-                checked
+                id="CHOCOLATUDO"
+                value="CHOCOLATUDO"
+                name="CHOCOLATUDO"
               />
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                XS
-              </div>
+              Chocolatudo
+              <p>
+                massa amanteigada de cacu, recheio de brigadeiro gourmet de
+                chocolate meio amargo
+              </p>
             </label>
-            <label>
+            <label className="bg-purple-700 rounded-lg max-w-sm">
               <input
-                className="sr-only peer"
-                name="size"
                 type="radio"
-                value="s"
+                id="LEITE_NINHO"
+                value="LEITE_NINHO"
+                name="LEITE_NINHO"
               />
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                S
-              </div>
+              Leite Ninho
+              <p>
+                massa amanteigada de baunilha e recheio de brigadeiro cremoso de
+                leite ninho
+              </p>
             </label>
-            <label>
+            <label className="bg-purple-700 rounded-lg max-w-sm">
               <input
-                className="sr-only peer"
-                name="size"
                 type="radio"
-                value="m"
+                id="RED_VELVET"
+                value="RED_VELVET"
+                name="RED_VELVET"
               />
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                M
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="l"
-              />
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                L
-              </div>
-            </label>
-            <label>
-              <input
-                className="sr-only peer"
-                name="size"
-                type="radio"
-                value="xl"
-              />
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center text-slate-700 peer-checked:font-semibold peer-checked:bg-slate-900 peer-checked:text-white">
-                XL
-              </div>
+              Red Velvet
+              <p>
+                massa fofinha e aveludada de tom vermelho, saborizada com
+                baunilha + cacau e recheio de cream cheese frosting
+              </p>
             </label>
           </div>
-        </div>
-        <div className="flex space-x-4 mb-6 text-sm font-medium">
-          <div className="flex-auto flex space-x-5">
-            <button
-              className="h-10 px-6 font-semibold rounded-md bg-black text-white"
-              type="submit"
-            >
-              Buy now
-            </button>
-            <button
-              className="h-10 px-6 font-semibold rounded-md border border-slate-200 text-slate-900"
-              type="button"
-            >
-              Add to bag
-            </button>
-          </div>
-          <button
-            className="flex-none flex items-center justify-center w-9 h-9 rounded-md text-slate-500 border border-slate-200 hover:bg-slate-200 transition-all"
-            type="button"
-            aria-label="Like"
-          >
-            <svg width="20" height="20" fill="currentColor" aria-hidden="true">
-              <path
-                fill-rule="evenodd"
-                clip-rule="evenodd"
-                d="M3.172 5.172a4 4 0 015.656 0L10 6.343l1.172-1.171a4 4 0 115.656 5.656L10 17.657l-6.828-6.829a4 4 0 010-5.656z"
-              />
-            </svg>
-          </button>
-        </div>
-        <p className="text-sm text-slate-700">
-          Free shipping on all continental US orders.
-        </p>
+        </section>
+
+        <section>
+          <label>
+            <input
+              className=" border-solid border-2 text-white  border-sky-500"
+              type="text"
+              id="POST-corBase"
+              // name="cakeColor"
+              placeholder="Cor do seu bolinho"
+            />
+          </label>
+        </section>
+        <section></section>
+        <section></section>
+        <footer></footer>
       </form>
     </div>
   );
